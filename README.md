@@ -15,10 +15,11 @@ Please make sure you read and understood the [Collaboration Policy](collaboratio
    - Proposals due before final deliverables are due
 
 ## Questions?
-Post to Ed or email the teaching staff:
+Post to Canvas/Ed or email the teaching staff:
   - Richard Yang (yry@cs.yale.edu)
   - Xiao Shi (xiao.shi@aya.yale.edu)
-  - TAs
+  - Mahdi Soleimani (mahdi.soleimani@yale.edu)
+  - Ross Johnson (ross.johnson@yale.edu)
 
 ## Tips on asking good questions / help us help you
 - First, try to find the answer(s) by Googling. See the [Collaboration Policy](collaboration_policy.md) about rules re: code reuse and attribution.
