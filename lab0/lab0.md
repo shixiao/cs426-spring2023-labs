@@ -9,26 +9,28 @@ The goal of this lab is to familiarize you with the Go programming language, mul
 - We will help you strategize how to debug but WE WILL NOT DEBUG YOUR CODE FOR YOU.
 - Please keep and submit a time log of time spent and major challenges you've encountered. This may be familiar to you if you've taken CS323. See [Time logging](#time-logging) for details.
 
-- Questions? post to Canvas or email the teaching staff at cs426ta@cs.yale.edu.
+- Questions? post to Canvas/Ed or email the teaching staff at cs426ta@cs.yale.edu.
   - Richard Yang (yry@cs.yale.edu)
   - Xiao Shi (xiao.shi@aya.yale.edu)
-  - TAs
+  - Mahdi Soleimani (mahdi.soleimani@yale.edu)
+  - Ross Johnson (ross.johnson@yale.edu)
 
-**Submission deadline: TBA**
+**Submission deadline: 23:59 ET Wednesday Feb 1, 2023**
 
 **Submission logistics** Submit as a `.tar.gz` archive on Canvas named after your NetID.
 E.g., `xs66.tar.gz`
 
 Your submission for this lab should include the following files:
 ```
-discussions.txt
-profile_striped_num_cpu_times_two.png
-string_set.go
-striped_string_set.go
-time.log
+  discussions.txt
+  profile_striped_num_cpu_times_two.png
+  string_set.go
+  striped_string_set.go
+  time.log
 ```
 
 ## Preparation
+0. Set up a Unix dev environment (Linux, Mac OS, or if you have no other options, WSL on Windows) either on your own machine or a zoo machine. x86_64 Linux or MacOS are preferred though not required. For this lab, you will need only the Go compiler; for future labs, you will need [docker](https://docs.docker.com/get-docker/) and [kubectl](https://kubernetes.io/docs/tasks/tools/).
 1. Install Go (or run Go on a Zoo machine) following [this guide](https://go.dev/doc/install). We also recommend that you install Go extensions to whichever editor you are using, e.g., [for VSCode](https://code.visualstudio.com/docs/languages/go), [for Atom](https://atom.io/packages/go-plus).
 2. Complete the [Tour of Go](https://go.dev/tour/list). Pay special attention to the concurrency module. Use the exercises in the tutorial as checkpoints of your Go familiarity, but we won't as you to submit your solutions or grade them. That said, skip them at your own peril as all of the labs this semster will be in Go.
 3. Check out the list of [Go tips and FAQs](#go-tips-and-faqs) as you set up your development workflow.
