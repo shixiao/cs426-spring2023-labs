@@ -15,7 +15,7 @@ Please make sure you read and understood the [Collaboration Policy](collaboratio
    - Proposals due before final deliverables are due
 
 ## Questions?
-Post to Canvas/Ed or email the teaching staff:
+Post to Canvas/Ed (https://edstem.org/us/courses/35495/discussion/) or email the teaching staff:
   - Richard Yang (yry@cs.yale.edu)
   - Xiao Shi (xiao.shi@aya.yale.edu)
   - Mahdi Soleimani (mahdi.soleimani@yale.edu)

@@ -9,7 +9,7 @@ The goal of this lab is to familiarize you with the Go programming language, mul
 - We will help you strategize how to debug but WE WILL NOT DEBUG YOUR CODE FOR YOU.
 - Please keep and submit a time log of time spent and major challenges you've encountered. This may be familiar to you if you've taken CS323. See [Time logging](#time-logging) for details.
 
-- Questions? post to Canvas/Ed or email the teaching staff at cs426ta@cs.yale.edu.
+- Questions? post to Canvas/Ed (https://edstem.org/us/courses/35495/discussion/) or email the teaching staff at cs426ta@cs.yale.edu.
   - Richard Yang (yry@cs.yale.edu)
   - Xiao Shi (xiao.shi@aya.yale.edu)
   - Mahdi Soleimani (mahdi.soleimani@yale.edu)
@@ -18,9 +18,8 @@ The goal of this lab is to familiarize you with the Go programming language, mul
 **Submission deadline: 23:59 ET Wednesday Feb 1, 2023**
 
 **Submission logistics** Submit as a `.tar.gz` archive on Canvas named after your NetID.
-E.g., `xs66.tar.gz`
+E.g., `xs66.tar.gz` which should contain a folder named after you NetID with the following files:
 
-Your submission for this lab should include the following files:
 ```
   discussions.txt
   profile_striped_num_cpu_times_two.png
