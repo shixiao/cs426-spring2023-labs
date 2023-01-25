@@ -4,8 +4,9 @@ Please make sure you read and understood the [Collaboration Policy](collaboratio
 
 ## Labs
  - Lab 0: introduction to Go and concurrent programming (easy)
-   - [Initial version](lab0/lab0.md)
+   - [final version](lab0/lab0.md)
  - Lab 1: single-node video recommendation service (moderate)
+   - [Initial version](lab1/lab1.md)
  - Lab 2: deployment and operations (easy)
  - Lab 3: Raft with static cluster membership (hard+)
  - Lab 4: Sharded key-value cache (moderate)

@@ -1,4 +1,4 @@
-# [Initial version] CS426 Lab 0: Introduction to Go and multi-threaded programming
+# CS426 Lab 0: Introduction to Go and multi-threaded programming
 
 ## Overview
 The goal of this lab is to familiarize you with the Go programming language, multi-threaded programming, and the concepts and practices of concurrency and parallelization. Have fun!
