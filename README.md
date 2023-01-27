@@ -5,15 +5,25 @@ Please make sure you read and understood the [Collaboration Policy](collaboratio
 ## Labs
  - Lab 0: introduction to Go and concurrent programming (easy)
    - [final version](lab0/lab0.md)
+   - Due 23:59 ET Wed Feb 1, 2023
  - Lab 1: single-node video recommendation service (moderate)
    - [Initial version](lab1/lab1.md)
+   - Due 23:59 ET Wed Feb 8, 2023
  - Lab 2: deployment and operations (easy)
+   - Release: ~Feb 1
+   - Due 23:59 ET Wed Feb 15, 2023
  - Lab 3: Raft with static cluster membership (hard+)
+   - Release: Feb 15
+   - Due 23:59 ET Wed Mar 8, 2023 (i.e., Wed before spring break)
  - Lab 4: Sharded key-value cache (moderate)
+   - Release: Mar 27 (i.e., first day back from spring break)
+   - Due 23:59 ET Wed Apr 12, 2023
    - Optional: complete the lab in a group of 3
  - Lab 5: Final project
+   - Release: Mar 27 (i.e., first day back from spring break)
+   - Proposals due: 23:59 ET Sat Apr 15, 2023 (N.B. Saturday)
+   - Final deliverables due: 23:59 ET Wed May 10, 2023 (Last day of final exam; you may not be able to use the discretionary hours as per Yale College's regulations.)
    - Optional: same group as Lab 4
-   - Proposals due before final deliverables are due
 
 ## Questions?
 Post to Canvas/Ed (https://edstem.org/us/courses/35495/discussion/) or email the teaching staff:

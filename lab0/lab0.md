@@ -45,6 +45,8 @@ go test -run 'TestLocked/locked/(simple|concurrent)' -race -v
 ```
 (You can run the test for `PredRange` after you've completed it in Part C.)
 
+Note: you may notice that (perhaps surprisingly), the concurrent tests take longer to run under a reader-writer lock (`sync.RWMutex`) than if you used an exclusive lock (`sync.Mutex`). We encourage you to think about why that is (but you need not submit an answer). The key take-away here is that the performance of a system/strategy depends on the workload, the underlying implementation, and the parallelism. Under what workloads would `RWMutex` be worse-off than exclusive locks?
+
 ## Part B. Lock striping
 
 **Benchmarks** and **Profilers** are important tools to evaluate performance of one's code, protocol, or systems. Single-machine, small-scale benchmarks are often called _micro-benchmarks_. Profilers collect the runtime metrics of a program (often a benchmark) to guide performance optimizations. The most common profiles include CPU profiles and memory profiles. Benchmarking and profiling can be somewhat of a minefield since it's easy to be measuring the wrong thing or drawing incorrect conclusions, e.g., sometimes one's benchmark setup take more CPU cycles to run than the core logic of interest. We will only get a taste of it in this lab.
@@ -145,8 +147,12 @@ You may use [`regexp.Match`](https://pkg.go.dev/regexp).
  - Use these commands:
     - `go fmt`
     - `go mod tidy` cleans up the module dependencies.
-    - `go test -race ...` turns on the Go race detector.
+    - `go test -race ...` turns on the Go race detector. Note that `-race` must come before any file name in the command.
     - `go vet` examines Go source code and reports suspicious constructs, such as Printf calls whose arguments do not align with the format string. Vet uses heuristics that do not guarantee all reports are genuine problems, but it can find errors not caught by the compilers.
+ - `go: no such tool "pprof"` error:
+   - follow instructions [here](https://github.com/google/pprof#building-pprof). `https://github.com/google/pprof#building-pprof`
+ - `package testmain: cannot find package` error:
+   - Chances are the `GOPATH` env var is not set properly. Run these commands in the terminal: `export GOPATH=$HOME/go` and `export PATH=$PATH:$GOROOT/bin:$GOPATH/bin`. You can also add these to your `~/.bachrc` or `~/.zshrc`.
 
 # Time logging
 
