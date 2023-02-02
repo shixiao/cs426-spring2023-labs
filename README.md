@@ -7,10 +7,10 @@ Please make sure you read and understood the [Collaboration Policy](collaboratio
    - [final version](lab0/lab0.md)
    - Due 23:59 ET Wed Feb 1, 2023
  - Lab 1: single-node video recommendation service (moderate)
-   - [Initial version](lab1/lab1.md)
+   - [final version](lab1/lab1.md)
    - Due 23:59 ET Wed Feb 8, 2023
  - Lab 2: deployment and operations (easy)
-   - Release: ~Feb 1
+   - Release: ~Feb 3
    - Due 23:59 ET Wed Feb 15, 2023
  - Lab 3: Raft with static cluster membership (hard+)
    - Release: Feb 15

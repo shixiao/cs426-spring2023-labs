@@ -155,7 +155,7 @@ We've provided a ranking library for you in `cs426.yale.edu/lab1/ranker`
 
 To rank a single video, you'll need the `UserCoefficients` from the original user ID (not the subscribed-to-users), and the `VideoCoefficients` for that video.
 
-Return the list of candidate videos in **descending** rank order (highest score is a better match), and truncate the list based on the limit in the `GetTopVideosRequest`. If no limit is set (a value of `0`), return all videos.
+Return the list of candidate videos in **descending** rank order (highest score is a better match), and truncate the list based on the limit in the `GetTopVideosRequest`. If no limit is set (a value of `0`), return all videos. There should not be duplicate videos in the returned list.
 
 Warning: because the ranking algorithm is extremely "sophisticated", for different user video  coefficients pairs, some may take longer than others to compute the scores. No need to be alarmed. The intention is to simulate the differences in computation latency in "real world" scenarios.
 
