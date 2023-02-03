@@ -10,7 +10,7 @@ Please make sure you read and understood the [Collaboration Policy](collaboratio
    - [final version](lab1/lab1.md)
    - Due 23:59 ET Wed Feb 8, 2023
  - Lab 2: deployment and operations (easy)
-   - Release: ~Feb 3
+   - [initial version](lab2/lab2.md)
    - Due 23:59 ET Wed Feb 15, 2023
  - Lab 3: Raft with static cluster membership (hard+)
    - Release: Feb 15
