@@ -51,7 +51,7 @@ Note: you may notice that (perhaps surprisingly), the concurrent tests take long
 
 **Benchmarks** and **Profilers** are important tools to evaluate performance of one's code, protocol, or systems. Single-machine, small-scale benchmarks are often called _micro-benchmarks_. Profilers collect the runtime metrics of a program (often a benchmark) to guide performance optimizations. The most common profiles include CPU profiles and memory profiles. Benchmarking and profiling can be somewhat of a minefield since it's easy to be measuring the wrong thing or drawing incorrect conclusions, e.g., sometimes one's benchmark setup take more CPU cycles to run than the core logic of interest. We will only get a taste of it in this lab.
 
-The following command runs a selected set of benchmarks. Specifically, `-bench=LockedStringSet/adds$` selects benchmarks whose names match `LockedStringSet` (can also be a regex) and whose sub-benchmark names match `adds$`. `-run=^$` prevents tests in the same file from running such that the profiling results only contains traces while the benchmark(s) are running and not the tests.
+The following command runs a selected set of benchmarks. Specifically, `-bench=LockedStringSet/adds$` selects benchmarks whose names match `LockedStringSet` (can also be a regex) and whose sub-benchmark names match `adds$`. `-run=^$` prevents tests in the same file from running such that the profiling results only contains traces while the benchmark(s) are running and not the tests. Note: data race detection requires tracking memory accesses thus imposes potentially a lot of overhead, make sure any benchmarks are not run with `-race`.
 ```
 go test -v -bench=LockedStringSet/adds$ -run=^$
 
@@ -111,13 +111,16 @@ As you can see in the sample output (`profile001.png`), the single RWMutex has b
 You may find it helpful to review the following references to understand the technique, but you may not directly use or translate the code:
 * [Lock striping in Java](https://www.baeldung.com/java-lock-stripping)
 * [Concurrent map in Go](https://github.com/orcaman/concurrent-map/blob/master/concurrent_map.go)
+* [ThreadSafe associative containers in Go](https://github.com/deckarep/golang-set/blob/main/threadsafe.go)
 
-**B2.** Keeping count. There are several strategies to keep count in this striped data structure:
-1. iterate through the entire set across all stripes each time a count is needed;
-2. keep a per-stripe counter and add up counters from every stripe when queried;
-3. keep a global (i.e., one single) counter that gets updated when a string is added; (See [atomic counters](https://gobyexample.com/atomic-counters).)
+**B2.** Keeping count. There are many (implementation dependent) strategies to keep count in this striped data structure. Describe three implementation options and discuss the pros and cons of each; include query patterns where one works better than the others. (Your description should not include pseudo code but should include sufficient detail for the purpose of the discussion, esp. when it comes to synchronization.)
 
-What are the advantages and disadvantages of each of these approaches? Can you think of query patterns where one works better than another?
+Here are some questions and ideas to pique your imagination:
+ - keep a global (i.e., one single) counter that gets updated when a string is added; (See [atomic counters](https://gobyexample.com/atomic-counters).)
+ - keep a per-stripe counter and add up the counters from each stripe when queried;
+   - is there a counter already in the underlying data structure of the strip?
+   - is this per-stripe counter protected by the same lock as the stripe? or by a different lock? or is it an atomic counter?
+ - no counter at all: iterate through the entire set across all stripes each time a count is needed;
 
 Include your thoughts (1~2 paragraphs) in a plain text file `discussions.txt` under a heading **B2**.
 
@@ -128,12 +131,14 @@ Include your thoughts (1~2 paragraphs) in a plain text file `discussions.txt` un
 
 For example, if the string set `s` contains `{"barabc", "bazdef", "fooabc", "tusabc", "zyxabc"}`, calling `s.PredRange("barabc", "zyxabc", "abc")` should return `["barabc", "tusabc", "fooabc"]`. Note that the return does not have to be in lexicographic order.
 
-You may use [`regexp.Match`](https://pkg.go.dev/regexp).
+You may use [`regexp.Match`](https://pkg.go.dev/regexp). Note: here we use the globbing definition regex matching (i.e., a string matches a pattern if it contains _any_ match for the pattern) instead of exact matching (which one can still achieve with `^pattern$` if desired).
 
 **C2.** Parallelize your implementation of `PredRange` for `StripedStringSet` by spinning up a goroutine for each stripe and aggregate the results in the end.
 
 **C3.** Pick _one_ of the `adds+counts`, `scans:serial`, or `scans:parallel` sub-benchmarks. Run the provided subbenchmark and see the difference in performance between `LockedStringSet` and `StripedStringSet` with 2 stripes. What do you observe? Is that expected? Why? Include your response in `discussions.txt` under a heading **C3**.
 (For a hint, see **ExtraCredit2**.)
+
+Note: `+` is a special character in regexes, to run the `adds+counts` benchmark, you need to escape the `+` in the command line arg to `-bench`.
 
 **C4.** Use the same subbenchmark as C3. Generate a graph visualization of a profile for `StripedStringSet` with `stripeCount == NumCPU() * 2`. Name this `profile_striped_num_cpu_times_two.png`.
 
