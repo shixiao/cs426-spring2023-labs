@@ -604,7 +604,7 @@ you expect to happen if you used 1 client? How about 8? Note this down under sec
 
 You can update your deployment to set `--client-pool-size=n` test your hypotheses.
 
-# End of Lab 3
+# End of Lab 2
 
 
 # Time logging
