@@ -453,7 +453,7 @@ to recommend videos!
 
 You can test the whole thing out by visiting the frontend application at
 ```
-https://lab3.cs426.cloud/recommend/$your-k8s-namespace/$your-service-name/$your-net-ID-or-other-user-ID-string
+https://lab2.cs426.cloud/recommend/$your-k8s-namespace/$your-service-name/$your-net-ID-or-other-user-ID-string
 ```
 
 **Discussion**: Copy the results into a section **B4** in `discussions.md`.
