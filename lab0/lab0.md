@@ -21,7 +21,7 @@ The goal of this lab is to familiarize you with the Go programming language, mul
 E.g., `xs66.tar.gz` which should contain a folder named after you NetID with the following files:
 
 ```
-  discussions.txt
+  discussions.md
   profile_striped_num_cpu_times_two.png
   string_set.go
   striped_string_set.go
@@ -122,9 +122,9 @@ Here are some questions and ideas to pique your imagination:
    - is this per-stripe counter protected by the same lock as the stripe? or by a different lock? or is it an atomic counter?
  - no counter at all: iterate through the entire set across all stripes each time a count is needed;
 
-Include your thoughts (1~2 paragraphs) in a plain text file `discussions.txt` under a heading **B2**.
+Include your thoughts (1~2 paragraphs) in a plain text file `discussions.md` under a heading **B2**.
 
-**ExtraCredit1.** Suppose we start with a `StripedStringSet` with x unique strings. Goroutine/thread 0 issues a `Count()` call, while threads 1 through N issues `Add()` calls with distinct strings. What values might the `Count()` in thread 0 return? Why? Does it matter which counting strategy (#1 through 3 above) we use? What about `LockedStringSet`? In light of this behavior, how might you define "correctness" for the method `Count()`? Include your thoughts in `discussions.txt` under a heading **ExtraCredit1**.
+**ExtraCredit1.** Suppose we start with a `StripedStringSet` with x unique strings. Goroutine/thread 0 issues a `Count()` call, while threads 1 through N issues `Add()` calls with distinct strings. What values might the `Count()` in thread 0 return? Why? Does it matter which counting strategy (#1 through 3 above) we use? What about `LockedStringSet`? In light of this behavior, how might you define "correctness" for the method `Count()`? Include your thoughts in `discussions.md` under a heading **ExtraCredit1**.
 
 ## Part C. Channels, goroutines, and parallelization
 **C1.** Implement the API `PredRange(begin, end, pattern)` to return all strings matching a particular pattern within a range `[begin, end)` lexicographically. Please implement this function for both `LockedStringSet` and `StripedStringSet`.
@@ -135,14 +135,14 @@ You may use [`regexp.Match`](https://pkg.go.dev/regexp). Note: here we use the g
 
 **C2.** Parallelize your implementation of `PredRange` for `StripedStringSet` by spinning up a goroutine for each stripe and aggregate the results in the end.
 
-**C3.** Pick _one_ of the `adds+counts`, `scans:serial`, or `scans:parallel` sub-benchmarks. Run the provided subbenchmark and see the difference in performance between `LockedStringSet` and `StripedStringSet` with 2 stripes. What do you observe? Is that expected? Why? Include your response in `discussions.txt` under a heading **C3**.
+**C3.** Pick _one_ of the `adds+counts`, `scans:serial`, or `scans:parallel` sub-benchmarks. Run the provided subbenchmark and see the difference in performance between `LockedStringSet` and `StripedStringSet` with 2 stripes. What do you observe? Is that expected? Why? Include your response in `discussions.md` under a heading **C3**.
 (For a hint, see **ExtraCredit2**.)
 
 Note: `+` is a special character in regexes, to run the `adds+counts` benchmark, you need to escape the `+` in the command line arg to `-bench`.
 
 **C4.** Use the same subbenchmark as C3. Generate a graph visualization of a profile for `StripedStringSet` with `stripeCount == NumCPU() * 2`. Name this `profile_striped_num_cpu_times_two.png`.
 
-**ExtraCredit2.** Discuss the effect of the parameter stripeCount on the performance (compared to `LockedStringSet`). What do you notice? Why? What's the optimal stripeCount (feel free to try other numbers and include the result in the discussion)? Include your thoughts in `discussions.txt` under a heading **ExtraCredit2**.
+**ExtraCredit2.** Discuss the effect of the parameter stripeCount on the performance (compared to `LockedStringSet`). What do you notice? Why? What's the optimal stripeCount (feel free to try other numbers and include the result in the discussion)? Include your thoughts in `discussions.md` under a heading **ExtraCredit2**.
 
 # End of Lab 0
 ---

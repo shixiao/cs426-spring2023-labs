@@ -29,7 +29,7 @@ Your submission for this lab should include the following files:
 video_rec_service/server_lib/server_lib.go
 video_rec_service/server/server.go // though you may not need to modify this file
 video_rec_service/server/server_test.go // update this file to add your own unit tests
-discussions.txt
+discussions.md
 time.log
 ```
 
@@ -101,7 +101,7 @@ conn, err := grpc.Dial(address, opts...)
 ```
 (This is what `cmd/frontend/frontend.go` does, for reference.)
 
-**Discussion**: What networking/socket API(s) do you think `Dial` corresponds to or is similar to? (For reference, you can find example socket APIs [here](https://en.wikipedia.org/wiki/Berkeley_sockets#Socket_API_functions) or in the slides for Lecture 3.) Include your responses under a heading **A1** in `discussions.txt`.
+**Discussion**: What networking/socket API(s) do you think `Dial` corresponds to or is similar to? (For reference, you can find example socket APIs [here](https://en.wikipedia.org/wiki/Berkeley_sockets#Socket_API_functions) or in the slides for Lecture 3.) Include your responses under a heading **A1** in `discussions.md`.
 
 #### A2. Handling errors
 
@@ -114,7 +114,7 @@ For handling errors, consider also logging them to your output with `log.Printf`
 
 Client objects also must be closed when you are done with them -- be sure to call `conn.Close()` appropriately. The [`defer` statement](https://go.dev/tour/flowcontrol/12) may be useful.
 
-**Discussion**: In what cases do you think `Dial()` will fail? What status code do you think you should return for these cases? Include your responses and reasoning (why you picked the particular code) under a heading **A2** in `discussions.txt`.
+**Discussion**: In what cases do you think `Dial()` will fail? What status code do you think you should return for these cases? Include your responses and reasoning (why you picked the particular code) under a heading **A2** in `discussions.md`.
 
 #### A3. Fetching the user and the users they subscribe to
 
@@ -132,9 +132,9 @@ To find the set of videos to rank, you will need to first find the users that th
 With subscribed-to user IDs, make another call to the `UserService` to find *their* `LikedVideos`.
 Be sure to handle errors from `GetUser` correctly, just as you did in **A2** for `Dial`.
 
-**Discussion**: What networking/system calls do you think will be used under the hood when you call `GetUser()`? What cases do you think this call / these calls can return an error? You may find the slides from Lecture 3 helpful. Could `GetUser` return errors in cases where the network calls succeed? Include your responses under a heading **A3** in `discussions.txt`.
+**Discussion**: What networking/system calls do you think will be used under the hood when you call `GetUser()`? What cases do you think this call / these calls can return an error? You may find the slides from Lecture 3 helpful. Could `GetUser` return errors in cases where the network calls succeed? Include your responses under a heading **A3** in `discussions.md`.
 
-**ExtraCredit1**: How are these errors detected? Include your responses under a heading `ExtraCredit1` in `discussions.txt`.
+**ExtraCredit1**: How are these errors detected? Include your responses under a heading `ExtraCredit1` in `discussions.md`.
 
 #### A4. Fetching video data
 
@@ -142,7 +142,7 @@ Repeat the process from **A1-A3** but using the appropriate `videoServiceAddr` a
 `VideoInfo`s for the union of all `LikedVideos` from the `SubscribedTo` set of users. Be sure to handle errors and close connections
 appropriately.
 
-**Discussion**: What would happen if you used the same `conn` for both `VideoService` and `UserService`? Include your responses under a heading `A4` in `discussions.txt`. This is not intended to be a trick question.
+**Discussion**: What would happen if you used the same `conn` for both `VideoService` and `UserService`? Include your responses under a heading `A4` in `discussions.md`. This is not intended to be a trick question.
 
 #### A5. Ranking the returned videos
 
@@ -174,7 +174,7 @@ go run cmd/frontend/frontend.go --net-id=xs66
 ```
 
 You should see some fake user info and recommended movies printed out. Include the name of the
-user picked for you as well as the top recommended video in your `discussions.txt` under heading **A6**.
+user picked for you as well as the top recommended video in your `discussions.md` under heading **A6**.
 
 `frontend.go` also includes tests for two hardcoded UserIds and results, which you can use to verify your implementation.
 
@@ -234,10 +234,10 @@ the set of IDs among them.
 You can test that your functionality works by starting `UserService` and `VideoService` locally (like before) and setting `--batch-size=5` on all three services, then running the steps from **A6** again to see that it does not error.
 
 
-**Discussion**: Should you send the batched requests concurrently? Why or why not? What are the advantages or disadvantages? Include your responses under a heading `A8` in `discussions.txt`.
+**Discussion**: Should you send the batched requests concurrently? Why or why not? What are the advantages or disadvantages? Include your responses under a heading `A8` in `discussions.md`.
 
 **ExtraCredit2**: Assume that handling one batch request is cheap up to the batch size limit. How could you reduce the total number of requests to `UserService` and `VideoService` using batching, assuming you have many incoming requests to `VideoRecService`? Describe how you would implement this at a high-level (bullet points and pseudocode are fine) but you do not need to implement it in your service.
-Include your responses under a heading `ExtraCredit2` in `discussions.txt`.
+Include your responses under a heading `ExtraCredit2` in `discussions.md`.
 
 ### Part B. Implementing GetStats
 
@@ -272,7 +272,7 @@ and use the recorded stats to fill out the appropriate response.
 Start your services in separate shells following instructions in **A6**, and then start the provided
 stats client with `go run cmd/stats/stats.go` in another. Initially all your metrics should be zero.
 
-Run the continuous load generation tool with `go run cmd/loadgen/loadgen.go --target-qps=10` and watch your metrics go up. Note neither the stats client nor the loadgen tool terminates on its own, feel free to Ctrl+C after you see non-zero values. Include a copy of your metrics including average latency under heading **B2** in your `discussions.txt`.
+Run the continuous load generation tool with `go run cmd/loadgen/loadgen.go --target-qps=10` and watch your metrics go up. Note neither the stats client nor the loadgen tool terminates on its own, feel free to Ctrl+C after you see non-zero values. Include a copy of your metrics including average latency under heading **B2** in your `discussions.md`.
 
 Notes:
 * You may need to run `go get golang.org/x/time/rate`, which is a rate limiting library that loadgen uses.
@@ -301,7 +301,7 @@ In case of an error from `UserService` or `VideoService`, add a *single* retry o
 
 Run the test from above (with a failure rate of 1 in 10 on VideoService) and see how your service performs now.
 
-**Discussion**: Why might retrying be a bad option? In what cases should you *not* retry a request? Add your response under heading **C1** in `discussions.txt`.
+**Discussion**: Why might retrying be a bad option? In what cases should you *not* retry a request? Add your response under heading **C1** in `discussions.md`.
 
 #### C2. Fallback recommendations
 
@@ -333,7 +333,7 @@ a fallback response and use it to fill the `stale_responses` part of the `GetSta
 
 For this lab, prefer to return expired responses over an error if you can cache at least one
 successful set of trending videos. Note down the tradeoffs of the strategies under heading **C2**
-in `discussions.txt`.
+in `discussions.md`.
 
 You can verify your fallback strategy works by running the test from above and stopping user service entirely mid-run.
 You should see `stale_responses` increase in the loadgen output.
@@ -342,13 +342,13 @@ You should see `stale_responses` increase in the loadgen output.
 
 Name at least one additional strategy you could use to improve the reliability
 of `VideoRecService` (successful, and useful responses) in the event of failures of `UserService`
-or `VideoService`. What tradeoffs would you make and why? Add your response under heading **C3** in `discussions.txt`.
+or `VideoService`. What tradeoffs would you make and why? Add your response under heading **C3** in `discussions.md`.
 
 #### C4. Connection management
 In part **A** you likely created new connections via `grpc.Dial()` to `UserService` and `VideoService` on every
 request when you needed to use them. What might be costly about connection establishment? (hint: for a high-throughput service you would want to avoid repeated connection
 establishment.) How could you change your implementation to avoid per-request connection establishment? Does it have any tradeoffs (consider
-topics such as load balancing from the course lectures)? Note your discussion under **C4** in `discussions.txt`, but
+topics such as load balancing from the course lectures)? Note your discussion under **C4** in `discussions.md`, but
 you do not have to change your implementation.
 
 
