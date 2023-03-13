@@ -117,7 +117,7 @@ func main() {
 	fetchUser(userId)
 	sendSingleTestRequest(userId, videoRecServiceClient)
 
-	log.Println("\n\n==== BASIC TESTS ====\n")
+	log.Printf("\n\n==== BASIC TESTS ====\n")
 
 	// two test cases
 	userId = 204054
