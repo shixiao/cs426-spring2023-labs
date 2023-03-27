@@ -13,16 +13,16 @@ Please make sure you read and understood the [Collaboration Policy](collaboratio
    - [final version](lab2/lab2.md)
    - Due 23:59 ET Wed Feb 15, 2023
  - Lab 3: Raft with static cluster membership (hard+)
-   - [initial version](lab3/lab3.md)
+   - [final version](lab3/lab3.md)
    - Due 23:59 ET Wed Mar 8, 2023 (i.e., Wed before spring break)
  - Lab 4: Sharded key-value cache (moderate)
-   - Release: Mar 27 (i.e., first day back from spring break)
+   - [initial version](lab4/lab4.md)
    - Due 23:59 ET Wed Apr 12, 2023
-   - Optional: complete the lab in a group of 3
+   - Optional: complete the lab in a group of up to 3 people
  - Lab 5: Final project
-   - Release: Mar 27 (i.e., first day back from spring break)
-   - Proposals due: 23:59 ET Sat Apr 15, 2023 (N.B. Saturday)
-   - Final deliverables due: 23:59 ET Wed May 10, 2023 (Last day of final exam; you may not be able to use the discretionary hours as per Yale College's regulations.)
+   - [Requirements and ideas](https://docs.google.com/document/d/1694jDeCSZGjjKd7LjFNTfHUWFBSlz1BaTDkpEsHvfOU/edit?usp=sharing)
+   - Proposals due: 23:59 ET Sun Apr 16, 2023 (N.B. Sunday)
+   - Final deliverables due: 17:30pm ET Wed May 10, 2023 (Last day of final exam; you may not be able to use the discretionary hours as per Yale College's regulations.)
    - Optional: same group as Lab 4
 
 ## Questions?
