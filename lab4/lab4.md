@@ -54,8 +54,7 @@ go.mod
 net-ids.txt // if group
 ```
 
-We will accept the same late policy as all labs starting with lab 2. You
-have 72 discretionary hours to use across all labs this semester and
+You have 72 discretionary hours to use across all labs this semester and
 still receive full credit. Past the 72 discretionary hours we will accept
 Dean's excuse.
 
